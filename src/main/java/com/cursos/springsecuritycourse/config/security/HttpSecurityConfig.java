@@ -1,8 +1,10 @@
 package com.cursos.springsecuritycourse.config.security;
 
+import com.cursos.springsecuritycourse.config.security.filter.JwtAuthenticationFilter;
 import com.cursos.springsecuritycourse.util.Permission;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -13,9 +15,8 @@ import org.springframework.security.config.annotation.web.configurers.AuthorizeH
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.stereotype.Component;
 
-@Component //@Configuration
+@Configuration //@Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class HttpSecurityConfig {
 
     private final AuthenticationProvider authenticationProvider;
 
-    //private final JwtAuthenticationFilter authenticationFilter;
+    private final JwtAuthenticationFilter authenticationFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -32,7 +33,7 @@ public class HttpSecurityConfig {
                 .csrf( csrfConfig -> csrfConfig.disable() )
                 .sessionManagement( sessionMangConfig -> sessionMangConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS) )
                 .authenticationProvider(authenticationProvider)
-                //.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
 //                .authorizeHttpRequests(builderRequestMatchers())
         ;
 

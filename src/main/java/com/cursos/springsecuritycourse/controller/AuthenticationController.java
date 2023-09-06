@@ -16,7 +16,7 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
 
-    //@PreAuthorize("permitAll")
+    @PreAuthorize("permitAll")
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> login(
             @RequestBody @Valid AuthenticationRequest authRequest){
@@ -24,7 +24,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(jwtDto);
     }
 
-//    @PreAuthorize("permitAll")
+    @PreAuthorize("permitAll")
     @GetMapping("/public-access")
     public String publicAccessEndpoint(){
         return "este endpoint es público";
