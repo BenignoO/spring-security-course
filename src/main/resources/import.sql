@@ -1,5 +1,5 @@
-INSERT INTO "user" (username, name, password, role) values ('lmarquez', 'luis márquez', '$2a$10$KptFEFDcKtksnTHEPYhzvOjkeKCNKdbAFz8/cKf2YdHyTohi.PYp.', 'CUSTOMER');
-INSERT INTO "user" (username, name, password, role) values ('mhernandez', 'menganito hernández', '$2a$10$9MDADyKkF/WHTFew5U27XOuXoywFnk4JCG8m9n8uQ0gI4.blbn91O', 'ADMINISTRATOR');
+INSERT INTO "user" (username, name, password, role) values ('lmarquez', 'luis márquez', '$2a$10$02v7ZoqJxkS9G1DtqNuHvOhIUh/Zqs3WCPNtkI/z2oUf44Wcq46My', 'CUSTOMER');
+INSERT INTO "user" (username, name, password, role) values ('mhernandez', 'menganito hernández', '$2a$10$hm2xvhBMwVplxeByHWoX/en1So/vcq5e77JdO.ggj3wAVRhMmKq/G', 'ADMINISTRATOR');
 
 
 INSERT INTO product (name, price) VALUES ('Smartphone', 500.00);
